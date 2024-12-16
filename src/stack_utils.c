@@ -6,39 +6,43 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:33:46 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 13:53:25 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/16 15:19:19 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_stack *new_node(int value)
+t_stack	*new_node(int value)
 {
-    t_stack *node = malloc(sizeof(t_stack));
-    if (!node)
-        return (NULL);
-    node->value = value;
-    node->next = NULL;
-    return (node);
+	t_stack	*node;
+
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->next = NULL;
+	return (node);
 }
 
-void push(t_stack **stack, int value)
+void	push(t_stack **stack, int value)
 {
-    t_stack *node = new_node(value);
-    if (!node)
-        return;
-    node->next = *stack;
-    *stack = node;
+	t_stack	*node;
+
+	node = new_node(value);
+	if (!node)
+		return ;
+	node->next = *stack;
+	*stack = node;
 }
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-    t_stack *temp;
+	t_stack	*temp;
 
-    while (*stack)
-    {
-        temp = *stack;
-        *stack = (*stack)->next;
-        free(temp);
-    }
+	while (*stack)
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
+	}
 }

@@ -6,35 +6,36 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:22 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 13:06:42 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/16 15:16:28 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int is_number(char *str)
+static int	is_number(char *str)
 {
-    int i = 0;
+	int	i;
 
-    if (!str || str[0] == '\0') // Vérifie si la chaîne est vide
-        return (0);
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	if (!str || str[0] == '\0')
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-
-static int has_duplicates(t_stack *stack)
+static int	has_duplicates(t_stack *stack)
 {
-	t_stack *current = stack;
-	t_stack *runner;
-	
+	t_stack	*current;
+	t_stack	*runner;
+
+	current = stack;
 	while (current)
 	{
 		runner = current->next;
@@ -49,13 +50,14 @@ static int has_duplicates(t_stack *stack)
 	return (0);
 }
 
-t_stack *parse_input(int argc, char **argv)
+t_stack	*parse_input(int argc, char **argv)
 {
-    t_stack *stack = NULL;
-    int value;
-    int i = 1;
+	t_stack	*stack;
+	int		value;
+	int		i;
 
-    i = argc - 1;
+	stack = NULL;
+	i = argc - 1;
 	while (i >= 1)
 	{
 		if (!is_number(argv[i]) || !ft_atoi_safe(argv[i], &value))
@@ -66,11 +68,10 @@ t_stack *parse_input(int argc, char **argv)
 		push(&stack, value);
 		i--;
 	}
-
-    if (has_duplicates(stack))
-    {
-        free_stack(&stack);
-        return (NULL);
-    }
-    return (stack);
+	if (has_duplicates(stack))
+	{
+		free_stack(&stack);
+		return (NULL);
+	}
+	return (stack);
 }

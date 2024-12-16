@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:10 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 14:07:43 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/16 14:46:23 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,32 @@
 
 /* ********** SWAP ********** */
 // Échange les deux premiers éléments d'une pile.
-static void swap(t_stack **stack)
+static void	swap(t_stack **stack)
 {
-    if (!stack || !(*stack) || !(*stack)->next)
-        return;
-    int temp = (*stack)->value;
-    (*stack)->value = (*stack)->next->value;
-    (*stack)->next->value = temp;
+	int	temp;
+
+	if (!stack || !(*stack) || !(*stack)->next)
+		return ;
+	temp = (*stack)->value;
+	(*stack)->value = (*stack)->next->value;
+	(*stack)->next->value = temp;
 }
 
-void sa(t_stack **stack_a)
+void	sa(t_stack **stack_a)
 {
-    swap(stack_a);
+	swap(stack_a);
 	write(1, "sa\n", 3);
 }
 
-void sb(t_stack **stack_b)
+void	sb(t_stack **stack_b)
 {
-    swap(stack_b);
+	swap(stack_b);
 	write(1, "sb\n", 3);
 }
 
-void ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-    swap(stack_a);
-    swap(stack_b);
+	swap(stack_a);
+	swap(stack_b);
 	write(1, "ss\n", 3);
 }
-

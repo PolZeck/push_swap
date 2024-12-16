@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:10:19 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 13:58:19 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/16 14:39:18 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void print_stack(t_stack *stack)
 int main(int argc, char **argv)
 {
     t_stack *stack_a = NULL;
+	t_stack *stack_b = NULL;
 
     if (argc < 2)
         return (0);
@@ -39,7 +40,7 @@ int main(int argc, char **argv)
 
     printf("Initial stack_a: ");
     print_stack(stack_a);
-
+    print_stack(stack_b);
     return (0);
 }
 

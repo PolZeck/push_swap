@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:12:09 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 13:53:14 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/16 14:16:46 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ void push_s(t_stack **src, t_stack **dest)
 
 void pa(t_stack **stack_a, t_stack **stack_b)
 {
-    push_s(stack_b, stack_a);
+    push_s(stack_a, stack_b);
+	write(1, "pa\n", 3);
 }
 
 void pb(t_stack **stack_a, t_stack **stack_b)
 {
     push_s(stack_a, stack_b);
+	write(1, "pb\n", 3);
 }
 

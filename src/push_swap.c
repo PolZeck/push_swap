@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:10:19 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 15:39:50 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/16 15:42:50 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	print_stack(t_stack *stack)
 		printf("%d ", stack->value);
 		stack = stack->next;
 	}
-	printf("|\n");
 }
 
 int	main(int argc, char **argv)

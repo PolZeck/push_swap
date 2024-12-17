@@ -10,7 +10,8 @@ SRC =	src/push_swap.c \
 		src/ope1.c \
 		src/ope2.c \
 		src/ope3.c \
-		src/ope4.c 
+		src/ope4.c \
+		src/algo.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

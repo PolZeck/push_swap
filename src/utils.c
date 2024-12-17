@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:32 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 15:11:01 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 08:57:26 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,15 @@ int	ft_atoi_safe(const char *str, int *result)
 	*result = (int)(res * sign);
 	return (1);
 }
+
+int is_sorted(t_stack *stack)
+{
+    while (stack && stack->next)
+    {
+        if (stack->value > stack->next->value)
+            return (0);
+        stack = stack->next;
+    }
+    return (1);
+}
+

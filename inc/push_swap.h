@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:43 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 14:50:18 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 15:54:40 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ void    do_cheapest_move(t_stack **a, t_stack **b);
 void    get_position(t_stack **stack);
 int     get_lowest_index_position(t_stack **stack);
 int     find_target_position(t_stack **a, int index_b);
-void move_elements(t_stack **a, t_stack **b, int cost_a, int cost_b);
+void move_elements_combined(t_stack **a, t_stack **b, int cost_a, int cost_b);
+void move_elements_single(t_stack **a, t_stack **b, int cost_a, int cost_b);
 void push_all_save_three(t_stack **a, t_stack **b);
+
 
 
 // Gestion de la stack

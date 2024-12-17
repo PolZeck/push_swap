@@ -17,15 +17,19 @@ OBJ_DIR = obj
 OPS_DIR = $(SRC_DIR)/operations
 
 # Fichiers sources et objets
-SRC = $(SRC_DIR)/push_swap.c \
-      $(SRC_DIR)/stack_utils.c \
-      $(SRC_DIR)/validation.c \
-      $(SRC_DIR)/utils.c \
-	  $(SRC_DIR)/algo.c \
-      $(OPS_DIR)/swap.c \
-      $(OPS_DIR)/push.c \
-      $(OPS_DIR)/rotate.c \
-      $(OPS_DIR)/reverse_rotate.c \
+SRC =	$(SRC_DIR)/push_swap.c \
+    	$(SRC_DIR)/stack_utils.c \
+    	$(SRC_DIR)/validation.c \
+    	$(SRC_DIR)/utils.c \
+		$(SRC_DIR)/cost_utils.c \
+		$(SRC_DIR)/final_sort.c \
+		$(SRC_DIR)/move_utils.c \
+		$(SRC_DIR)/position_utils.c \
+		$(SRC_DIR)/tiny_sort.c \
+    	$(OPS_DIR)/swap.c \
+    	$(OPS_DIR)/push.c \
+    	$(OPS_DIR)/rotate.c \
+     	$(OPS_DIR)/reverse_rotate.c \
 
 
 # Transformation des chemins sources en objets

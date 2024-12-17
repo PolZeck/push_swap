@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ope4.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:48:25 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 14:49:22 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 14:47:28 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 /* ********** REVERSE ROTATE ********** */
 // Fait tourner tous les éléments d'une pile vers le bas.
 void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*last;
-	t_stack	*second_last;
+	t_stack	*tmp;
+	t_stack	*tail;
+	t_stack	*before_tail;
 
-	if (!stack || !(*stack) || !(*stack)->next)
-		return ;
-	second_last = *stack;
-	while (second_last->next->next)
-		second_last = second_last->next;
-	last = second_last->next;
-	second_last->next = NULL;
-	last->next = *stack;
-	*stack = last;
+	tail = get_stack_bottom(*stack);
+	before_tail = get_stack_before_bottom(*stack);
+	tmp = *stack;
+	*stack = tail;
+	(*stack)->next = tmp;
+	before_tail->next = NULL;
 }
 
 void	rra(t_stack **stack_a)

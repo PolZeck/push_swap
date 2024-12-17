@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ope2.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:12:09 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 09:00:31 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 14:47:22 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 /* ********** PUSH ********** */
 // Prend le premier élément de src et le place sur dest.
 void	push_s(t_stack **src, t_stack **dest)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
-	if (!src || !(*src))
+	if (*src == NULL)
 		return ;
-	temp = *src;
-	*src = (*src)->next;
-	temp->next = *dest;
-	*dest = temp;
+	tmp = (*src)->next;
+	(*src)->next = *dest;
+	*dest = *src;
+	*src = tmp;
 }
 
 // Prend le premier élément de B et le place sur A

@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:32 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 08:57:26 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 14:36:31 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,15 @@ int is_sorted(t_stack *stack)
     return (1);
 }
 
+t_stack	*get_stack_bottom(t_stack *stack)
+{
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+t_stack	*get_stack_before_bottom(t_stack *stack)
+{
+	while (stack && stack->next && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack);
+}

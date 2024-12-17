@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:43 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 08:57:35 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 14:50:18 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,7 @@ int     get_stack_size(t_stack *stack);
 t_stack *new_node(int value);
 void    free_stack(t_stack **stack);
 void    push(t_stack **stack, int value);
+t_stack	*get_stack_bottom(t_stack *stack);
+t_stack	*get_stack_before_bottom(t_stack *stack);
 
 #endif

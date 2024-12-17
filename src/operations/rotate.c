@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ope3.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:12:07 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 14:48:18 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 14:47:30 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 /* ********** ROTATE ********** */
 // Fait tourner tous les éléments d'une pile vers le haut.
 void	rotate(t_stack **stack)
 {
-	t_stack	*temp;
-	t_stack	*last;
+	t_stack	*tmp;
+	t_stack	*tail;
 
-	if (!stack || !(*stack) || !(*stack)->next)
-		return ;
-	temp = *stack;
+	tmp = *stack;
 	*stack = (*stack)->next;
-	temp->next = NULL;
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	last->next = temp;
+	tail = get_stack_bottom(*stack);
+	tmp->next = NULL;
+	tail->next = tmp;
 }
 
 void	ra(t_stack **stack_a)

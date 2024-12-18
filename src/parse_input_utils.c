@@ -1,36 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   parse_input_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 11:34:22 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/16 15:16:28 by pledieu          ###   ########lyon.fr   */
+/*   Created: 2024/12/18 09:37:31 by pledieu           #+#    #+#             */
+/*   Updated: 2024/12/18 10:54:13 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int	is_number(char *str)
+int	ft_isdigit(int c)
 {
-	int	i;
+	return (c >= '0' && c <= '9');
+}
 
-	i = 0;
-	if (!str || str[0] == '\0')
-		return (0);
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
+int	ft_atoi_safe(const char *str, int *result)
+{
+	long	res;
+	int		sign;
+
+	res = 0;
+	sign = 1;
+	if (*str == '+' || *str == '-')
 	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			return (0);
+		res = res * 10 + (*str++ - '0');
+		if ((sign == 1 && res > INT_MAX) || ((sign == -1) && (-res < INT_MIN)))
+			return (0);
+	}
+	*result = (int)(res * sign);
 	return (1);
 }
 
-static int	has_duplicates(t_stack *stack)
+int	has_duplicates(t_stack *stack)
 {
 	t_stack	*current;
 	t_stack	*runner;
@@ -50,28 +62,20 @@ static int	has_duplicates(t_stack *stack)
 	return (0);
 }
 
-t_stack	*parse_input(int argc, char **argv)
+int	is_number(char *str)
 {
-	t_stack	*stack;
-	int		value;
-	int		i;
+	int	i;
 
-	stack = NULL;
-	i = argc - 1;
-	while (i >= 1)
+	i = 0;
+	if (!str || str[0] == '\0')
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
 	{
-		if (!is_number(argv[i]) || !ft_atoi_safe(argv[i], &value))
-		{
-			free_stack(&stack);
-			return (NULL);
-		}
-		push(&stack, value);
-		i--;
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
 	}
-	if (has_duplicates(stack))
-	{
-		free_stack(&stack);
-		return (NULL);
-	}
-	return (stack);
+	return (1);
 }

@@ -6,14 +6,12 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:10 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 14:47:33 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/18 11:07:23 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-/* ********** SWAP ********** */
-// Échange les deux premiers éléments d'une pile.
 static void	swap(t_stack *stack)
 {
 	int	tmp;

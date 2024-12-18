@@ -6,18 +6,18 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:00:23 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 15:43:29 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/18 10:48:08 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void get_target_position(t_stack **a, t_stack **b)
+void	get_target_position(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	get_position(a);
-	get_position(b);
+	assign_position(a);
+	assign_position(b);
 	tmp = *b;
 	while (tmp)
 	{
@@ -26,23 +26,23 @@ void get_target_position(t_stack **a, t_stack **b)
 	}
 }
 
-void get_cost(t_stack **a, t_stack **b)
+void	get_cost(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *tmp_b;
-	int size_a;
-	int size_b;
+	t_stack	*tmp_b;
+	int		size_a;
+	int		size_b;
 
-	tmp_b = *b;
-	size_a = get_stack_size(*a);
-	size_b = get_stack_size(*b);
+	size_a = get_stack_size(*stack_a);
+	size_b = get_stack_size(*stack_b);
+	tmp_b = *stack_b;
 	while (tmp_b)
-    {
-        tmp_b->cost_b = tmp_b->pos;
-        tmp_b->cost_a = tmp_b->target_pos;
-        if (tmp_b->pos > size_b / 2)
-            tmp_b->cost_b = tmp_b->pos - size_b;
-        if (tmp_b->target_pos > size_a / 2)
-            tmp_b->cost_a = tmp_b->target_pos - size_a;
-        tmp_b = tmp_b->next;
-    }
+	{
+		tmp_b->cost_b = tmp_b->pos;
+		if (tmp_b->pos > size_b / 2)
+			tmp_b->cost_b = (size_b - tmp_b->pos) * -1;
+		tmp_b->cost_a = tmp_b->target_pos;
+		if (tmp_b->target_pos > size_a / 2)
+			tmp_b->cost_a = (size_a - tmp_b->target_pos) * -1;
+		tmp_b = tmp_b->next;
+	}
 }

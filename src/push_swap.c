@@ -6,15 +6,13 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:10:19 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 15:54:47 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/18 10:56:26 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
 
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -23,7 +21,6 @@ int main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
-
 	stack_a = parse_input(argc, argv);
 	if (!stack_a)
 	{
@@ -36,5 +33,3 @@ int main(int argc, char **argv)
 	free_stack(&stack_b);
 	return (0);
 }
-
-

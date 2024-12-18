@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:32 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 14:36:31 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/18 11:04:56 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,45 +20,15 @@ void	ft_putstr_fd(char *str, int fd)
 		write(fd, str++, 1);
 }
 
-int	ft_isdigit(int c)
+int	is_sorted(t_stack *stack)
 {
-	return (c >= '0' && c <= '9');
-}
-
-int	ft_atoi_safe(const char *str, int *result)
-{
-	long	res;
-	int		sign;
-
-	res = 0;
-	sign = 1;
-	if (*str == '+' || *str == '-')
+	while (stack && stack->next)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
+		if (stack->value > stack->next->value)
 			return (0);
-		res = res * 10 + (*str++ - '0');
-		if ((sign == 1 && res > INT_MAX) || ((sign == -1) && (-res < INT_MIN)))
-			return (0);
+		stack = stack->next;
 	}
-	*result = (int)(res * sign);
 	return (1);
-}
-
-int is_sorted(t_stack *stack)
-{
-    while (stack && stack->next)
-    {
-        if (stack->value > stack->next->value)
-            return (0);
-        stack = stack->next;
-    }
-    return (1);
 }
 
 t_stack	*get_stack_bottom(t_stack *stack)
@@ -67,9 +37,17 @@ t_stack	*get_stack_bottom(t_stack *stack)
 		stack = stack->next;
 	return (stack);
 }
+
 t_stack	*get_stack_before_bottom(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
+}
+
+int	nb_abs(int nb)
+{
+	if (nb < 0)
+		return (nb * -1);
+	return (nb);
 }

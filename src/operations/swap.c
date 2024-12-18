@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:10 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/18 11:07:23 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/18 11:11:16 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ static void	swap(t_stack *stack)
 void	sa(t_stack **stack_a)
 {
 	swap(*stack_a);
-	write(1, "sa\n", 3);
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_stack **stack_b)
 {
 	swap(*stack_b);
-	write(1, "sb\n", 3);
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(*stack_a);
 	swap(*stack_b);
-	write(1, "ss\n", 3);
+	ft_putstr_fd("ss\n", 1);
 }

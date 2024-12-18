@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:48:25 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/18 11:06:07 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/18 11:11:25 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void	reverse_rotate(t_stack **stack)
 void	rra(t_stack **stack_a)
 {
 	reverse_rotate(stack_a);
-	write(1, "rra\n", 4);
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack **stack_b)
 {
 	reverse_rotate(stack_b);
-	write(1, "rrb\n", 4);
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	write(1, "rrr\n", 4);
+	ft_putstr_fd("rrr\n", 1);
 }

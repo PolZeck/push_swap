@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:43 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 15:54:40 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 16:49:44 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int     find_target_position(t_stack **a, int index_b);
 void move_elements_combined(t_stack **a, t_stack **b, int cost_a, int cost_b);
 void move_elements_single(t_stack **a, t_stack **b, int cost_a, int cost_b);
 void push_all_save_three(t_stack **a, t_stack **b);
-
+int get_lowest_index(t_stack *stack);
 
 
 // Gestion de la stack
@@ -95,5 +95,10 @@ void    free_stack(t_stack **stack);
 void    push(t_stack **stack, int value);
 t_stack	*get_stack_bottom(t_stack *stack);
 t_stack	*get_stack_before_bottom(t_stack *stack);
+void sort_four_five(t_stack **a, t_stack **b);
+void push_two_min_to_b(t_stack **a, t_stack **b);
+void sort_five(t_stack **a, t_stack **b);
+
+
 
 #endif

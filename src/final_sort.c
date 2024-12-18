@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:00:56 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/17 15:01:00 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/17 16:55:23 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,26 @@ void shift_stack(t_stack **a)
 
 void sort(t_stack **a, t_stack **b)
 {
-    if (is_sorted(*a))
+    int size;
+
+    size = get_stack_size(*a);
+    if (is_sorted(*a)) // Si la stack est déjà triée
         return;
-    push_all_save_three(a, b);
-    tiny_sort(a);
-    while (*b)
+    else if (size <= 3 && size >0 )
+        tiny_sort(a);
+    else if (size == 4 || size == 5)
+        sort_four_five(a, b); // Gestion des 4 et 5 éléments
+	else
     {
-        get_target_position(a, b);
-        get_cost(a, b);
-        do_cheapest_move(a, b);
+        push_all_save_three(a, b);
+        tiny_sort(a);
+        while (*b)
+        {
+            get_target_position(a, b);
+            get_cost(a, b);
+            do_cheapest_move(a, b);
+        }
+        shift_stack(a);
     }
-    shift_stack(a);
 }
+

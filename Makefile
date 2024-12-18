@@ -53,7 +53,7 @@ $(NAME): $(OBJ)
 
 # Compilation des fichiers objets
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@) # Crée les sous-dossiers nécessaires dans obj
+	@mkdir -p $(dir $@) 
 	@echo "$(YELLOW)🛠️  Compiling $<...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

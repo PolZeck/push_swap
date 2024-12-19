@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:33:46 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/18 10:58:50 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/19 13:47:47 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-// Attribue des indices croissants à chaque élément
 void	assign_indices(t_stack *stack)
 {
 	t_stack	*current;
@@ -59,7 +58,6 @@ void	assign_indices(t_stack *stack)
 	}
 }
 
-// Retourne la position de l'élément avec l'index le plus bas dans la pile
 int	get_lowest_index_position(t_stack **stack)
 {
 	t_stack	*tmp;

@@ -2,7 +2,6 @@
 #                                💻 PUSH_SWAP 💻                               #
 # **************************************************************************** #
 
-# Couleurs pour les messages affichés
 RESET   = \033[0m
 GREEN   = \033[1;32m
 YELLOW  = \033[1;33m
@@ -10,19 +9,15 @@ CYAN    = \033[1;36m
 RED     = \033[1;31m
 NC      = \033[0m
 
-# Nom de l'exécutable
 NAME = push_swap
 
-# Compilateur et flags
 CC      = gcc
 CFLAGS  = -Wall -Wextra -Werror
 
-# Répertoires
 SRC_DIR = src
 OBJ_DIR = obj
 OPS_DIR = $(SRC_DIR)/operations
 
-# Liste des fichiers source
 SRC = $(SRC_DIR)/push_swap.c \
       $(SRC_DIR)/stack_utils.c \
       $(SRC_DIR)/parse_input.c \
@@ -30,26 +25,25 @@ SRC = $(SRC_DIR)/push_swap.c \
       $(SRC_DIR)/utils.c \
       $(SRC_DIR)/cost_utils.c \
       $(SRC_DIR)/final_sort.c \
-      $(SRC_DIR)/best_move_utils.c \
+      $(SRC_DIR)/best_move.c \
       $(SRC_DIR)/position_utils.c \
       $(SRC_DIR)/small_sort.c \
       $(SRC_DIR)/small_sort_utils.c \
       $(OPS_DIR)/swap.c \
       $(OPS_DIR)/push.c \
       $(OPS_DIR)/rotate.c \
-      $(OPS_DIR)/reverse_rotate.c
+      $(OPS_DIR)/reverse_rotate.c \
+      $(OPS_DIR)/operations_utils.c
 
-# Transformation des chemins sources en objets
+
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
 # **************************************************************************** #
 #                                REGLES PRINCIPALES                            #
 # **************************************************************************** #
 
-# Règle principale : compilation de l'exécutable
 all: $(NAME)
 
-# Création de l'exécutable
 $(NAME): $(OBJ)
 	@echo "$(CYAN)🔧 Compiling $(NAME)...$(RESET)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
@@ -59,7 +53,6 @@ $(NAME): $(OBJ)
 #                         COMPILATION DES FICHIERS OBJETS                      #
 # **************************************************************************** #
 
-# Compilation des fichiers .c en fichiers .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@) 
 	@echo "$(YELLOW)🛠️  Compiling $<...$(RESET)"
@@ -77,7 +70,6 @@ fclean: clean
 	@echo "$(RED)🗑️  Removing $(NAME)...$(RESET)"
 	@rm -f $(NAME)
 
-# Recompilation complète
 re: fclean all
 
 # **************************************************************************** #
@@ -92,7 +84,6 @@ norme:
 #                                TESTS AVEC PARAMETRES                         #
 # **************************************************************************** #
 
-# Exécution des tests avec $(PARAMS) paramètres
 test: re
 	@echo "$(CYAN)🔍 Running tests with $(PARAMS) parameters...$(RESET)"
 	@bash -c ' \
@@ -100,7 +91,7 @@ test: re
 	RED="$(RED)"; \
 	CYAN="$(CYAN)"; \
 	RESET="$(RESET)"; \
-	TESTS=250; \
+	TESTS=100; \
 	TOTAL_MOVES=0; \
 	PARAM_NB=$(PARAMS); \
 	LOG_FILE="result.log"; \

@@ -6,13 +6,12 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:12:07 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/18 11:11:09 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/19 13:53:36 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
-/* ********** ROTATE ********** */
-// Fait tourner tous les éléments d'une pile vers le haut.
+
 void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;

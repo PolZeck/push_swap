@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:10:19 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/19 13:41:06 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/19 13:56:09 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(stack_a) && !stack_b)
 	{
 		free_stack(&stack_a);
-		return(1);
+		return (1);
 	}
 	assign_indices(stack_a);
 	sort(&stack_a, &stack_b);

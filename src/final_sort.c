@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:00:56 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/18 10:50:01 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/19 12:48:57 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	shift_stack(t_stack **stack_a)
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	push_all_save_three(stack_a, stack_b);
-	tiny_sort(stack_a);
+	small_sort(stack_a);
 	while (*stack_b)
 	{
 		get_target_position(stack_a, stack_b);

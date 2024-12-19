@@ -32,8 +32,8 @@ SRC = $(SRC_DIR)/push_swap.c \
       $(SRC_DIR)/final_sort.c \
       $(SRC_DIR)/best_move_utils.c \
       $(SRC_DIR)/position_utils.c \
-      $(SRC_DIR)/tiny_sort.c \
-      $(SRC_DIR)/tiny_sort_utils.c \
+      $(SRC_DIR)/small_sort.c \
+      $(SRC_DIR)/small_sort_utils.c \
       $(OPS_DIR)/swap.c \
       $(OPS_DIR)/push.c \
       $(OPS_DIR)/rotate.c \
@@ -117,9 +117,9 @@ test: re
 	    fi; \
 	    TOTAL_MOVES=$$((TOTAL_MOVES + MOVES)); \
 	    if [ "$$RESULT" = "OK" ]; then \
-	        echo -e "Test $$i: $$GREEN OK $$RESET | Instructions: $$MOVES"; \
+	        echo -e "Test $$i: $$GREEN OK✅ $$RESET | Instructions: $$MOVES"; \
 	    else \
-	        echo -e "Test $$i: $$RED KO $$RESET | Instructions: $$MOVES"; \
+	        echo -e "Test $$i: $$RED KO❌ $$RESET | Instructions: $$MOVES"; \
 	        { \
 	            echo "Test $$i: KO | ARG=$$ARG | Instructions=$$MOVES"; \
 	            echo "Instructions générées :"; \

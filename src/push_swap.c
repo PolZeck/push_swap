@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:10:19 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/18 11:15:48 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/19 12:27:14 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int	main(int argc, char **argv)
 	stack_a = parse_input(argc, argv);
 	if (!stack_a)
 	{
-		ft_putstr_fd("Error\n", 1);
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
+	if (is_sorted(stack_a) && !stack_b)
+		return (1);
 	assign_indices(stack_a);
 	sort(&stack_a, &stack_b);
 	free_stack(&stack_a);

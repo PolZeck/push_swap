@@ -6,7 +6,7 @@
 /*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:43 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/18 11:43:54 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/19 12:49:30 by pledieu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*get_stack_before_bottom(t_stack *stack);
 
 /* 		TINY_SORT 				*/
 int		get_lowest_index(t_stack *stack);
-void	tiny_sort(t_stack **a);
+void	small_sort(t_stack **a);
 void	push_all_save_three(t_stack **a, t_stack **b);
 void	sort_four_five(t_stack **a, t_stack **b);
 

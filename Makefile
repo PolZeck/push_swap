@@ -97,7 +97,7 @@ test: re
 	LOG_FILE="result.log"; \
 	> $$LOG_FILE; \
 	for ((i=1; i<=TESTS; i++)); do \
-	    ARG=$$(shuf -i 0-9999 -n $$PARAM_NB); \
+	    ARG=$$(shuf -i 0-999999 -n $$PARAM_NB); \
 	    INSTRUCTIONS=$$(./push_swap $$ARG); \
 	    if [ -z "$$INSTRUCTIONS" ]; then \
 	        RESULT=$$(echo "" | ./checker_linux $$ARG); \

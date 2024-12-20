@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pledieu <pledieu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: pol <pol@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:59:38 by pledieu           #+#    #+#             */
-/*   Updated: 2024/12/19 12:49:50 by pledieu          ###   ########lyon.fr   */
+/*   Updated: 2024/12/20 15:11:00 by pol              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,4 @@ int	get_lowest_index(t_stack *stack)
 		stack = stack->next;
 	}
 	return (lowest);
-}
-
-void	sort_four_five(t_stack **a, t_stack **b)
-{
-	assign_indices(*a);
-	assign_position(a);
-	push_two_min_to_b(a, b);
-	small_sort(a);
-	if ((*b) && (*b)->next && (*b)->index > (*b)->next->index)
-		sb(b);
-	pa(a, b);
-	pa(a, b);
 }
